@@ -1,2 +1,3 @@
--- script that creates the table unique_id on MySQL server.
-CREATE TABLE IF NOT EXISTS unique_id (id INT DEFAULT 1 UNIQUE, name VARCHAR(256));
+-- Creates a new table with a forced unique id
+-- uses unique
+CREATE TABLE IF NOT EXISTS `unique_id` (`id` INT DEFAULT 1 UNIQUE, `name` VARCHAR(256));

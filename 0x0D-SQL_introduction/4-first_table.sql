@@ -1,2 +1,3 @@
--- script that creates a table called first_table
-CREATE Table first_table (id INT, name VARCHAR(256));
+-- creates a database table
+-- create a table
+CREATE TABLE IF NOT EXISTS first_table (id int, name VARCHAR(256));

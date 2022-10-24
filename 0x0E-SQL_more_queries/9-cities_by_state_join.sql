@@ -1,3 +1,3 @@
---  script that lists all cities contained in the database hbtn_0d_usa
--- display ONLY: cities.id - cities.name - states.name,Results must be sorted in asc order by cities.id
-SELECT cities.id, cities.name, states.name FROM cities INNER JOIN states ON cities.state_id = states.id ORDER BY cities.id ASC
+-- A script that list all cities in the database
+-- Combines the two tables to list all the info
+SELECT cities.id, cities.name, states.name FROM cities JOIN states ON states.id = cities.state_id  ORDER BY cities.id ASC;

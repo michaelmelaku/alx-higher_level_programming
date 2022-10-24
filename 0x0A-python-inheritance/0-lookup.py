@@ -1,9 +1,15 @@
 #!/usr/bin/python3
-"""
-Definition of module
-"""
+"""dirs the object passed to it"""
 
 
 def lookup(obj):
-    """returns a list of available objects"""
+    """ looks up attributes
+
+    Args:
+        obj: the object to dir
+
+    Returns:
+    list: the dir info of the obj
+
+    """
     return dir(obj)

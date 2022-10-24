@@ -1,2 +1,3 @@
--- script that removes all records with a score <= 5 in the table second_table
-DELETE FROM second_table WHERE score <= 5;
+-- deletes low values form the table of the database
+-- Deletes values under a certain value
+DELETE FROM second_table WHERE `score` <= 5;

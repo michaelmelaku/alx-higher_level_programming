@@ -1,18 +1,8 @@
 #!/usr/bin/python3
+import requests
+from sys import argv
 
-"""
-takes GitHub credentials (username and password)
-"""
-
-if __name__ == '__main__':
-    import sys
-    import requests
-    url = "https://api.github.com/user"
-    username = sys.argv[1]
-    password = sys.argv[2]
-    info = (username, password)
-    r = requests.get(url, auth=info)
-    try:
-        print(r.json()['id'])
-    except Exception:
-        print('None')
+if __name__ == "__main__":
+    my_data = requests.get("https://api.github.com/user",
+                           auth=(argv[1], argv[2]))
+    print(my_data.json().get("id"))

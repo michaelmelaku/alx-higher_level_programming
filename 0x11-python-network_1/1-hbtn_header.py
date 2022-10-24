@@ -1,12 +1,7 @@
 #!/usr/bin/python3
-"""
-fetch X-Request-Id from header response with url
-"""
-
-if __name__ == '__main__':
-    import urllib.request
-    import sys
-    with urllib.request.urlopen(sys.argv[1]) as response:
-        content = response.getheader('X-Request-Id')
-
-    print(content)
+import urllib.request
+from sys import argv
+if __name__ == "__main__":
+    with urllib.request.urlopen(argv[1]) as data:
+        print_data = data.info()
+        print(print_data["X-Request-Id"])

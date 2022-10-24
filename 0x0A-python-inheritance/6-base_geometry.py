@@ -1,17 +1,14 @@
 #!/usr/bin/python3
-"""
-    BaseGeometry class
-"""
+"""A class that is kinda empty"""
 
 
-class BaseGeometry():
-    """
-        BaseGeometry Class
+class BaseGeometry:
+    """Template for BaseGeometry
     """
     def area(self):
-        """
-            public instance
-            Raise:
-                Exception: Area is not implemented
+        """unimplemented area method
+
+        Raises:
+            Exception: see below
         """
         raise Exception("area() is not implemented")

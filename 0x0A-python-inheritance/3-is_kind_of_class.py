@@ -1,11 +1,16 @@
 #!/usr/bin/python3
-"""
-    Defining module is_kind_of_class
-"""
+"""checks if is the same class"""
 
 
 def is_kind_of_class(obj, a_class):
+    """checks if is the same kind of class
+
+    Args:
+        obj: the object to check
+        a_class: the class to check against
+
+    Returns:
+        bool: True if it is an obj of the class False otherwise
+
     """
-    function that returns True if the object is an instance.
-    """
-    return isinstance(obj, a_class)
+    return (isinstance(obj, a_class))

@@ -1,13 +1,15 @@
 #!/usr/bin/node
-const op = process.argv[2];
-let sp = '';
-if (isNaN(op) === true) {
+const arg1 = process.argv[2];
+const myInt = parseInt(arg1);
+const square = 'X';
+if (isNaN(myInt)) {
   console.log('Missing size');
 } else {
-  for (let i = 0; i < op; i++) {
-    sp += 'X';
-  }
-  for (let j = 0; j < op; j++) {
-    console.log(sp);
+  let i = 0;
+  if (myInt > 0) {
+    while (i < myInt) {
+      console.log(square.repeat(myInt));
+      i++;
+    }
   }
 }

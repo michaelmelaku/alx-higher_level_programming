@@ -1,9 +1,13 @@
 #!/usr/bin/python3
 def divisible_by_2(my_list=[]):
-    new = []
-    for i in my_list:
-        if i % 2 == 0:
-            new.append(True)
+    length = len(my_list)
+    ret_list = []
+    i = 0
+    while length:
+        if my_list[i] % 2 == 0:
+            ret_list.append(True)
         else:
-            new.append(False)
-    return new
+            ret_list.append(False)
+        i += 1
+        length -= 1
+    return ret_list

@@ -1,15 +1,12 @@
 #!/usr/bin/python3
-"""
-    Defining class Mylist
-    """
+""" sorts a list """
 
 
 class MyList(list):
-    """
-        MyList
+    """sorts a list
+
     """
     def print_sorted(self):
-        """
-        Print a sorted List
-        """
-        print(sorted(self))
+        sorted_list = self
+        sorted_list.sort()
+        print("{}".format(sorted_list))

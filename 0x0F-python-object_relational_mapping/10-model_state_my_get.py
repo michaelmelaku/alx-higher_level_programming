@@ -1,22 +1,26 @@
 #!/usr/bin/python3
-"""Print State obj with 'name' passed as arg from db 'hbtn_0e_6_usa'
-Script should take 4 args: username, pw, db name, and state name
-Must use SQLAlchemy
+"""Takes user input and checks if that state is in the database,
+if it is it returns the id
 """
-import sys
-from sqlalchemy.orm import sessionmaker
+import MySQLdb
+import sqlalchemy
 from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+from sys import argv
 from model_state import Base, State
 
 if __name__ == "__main__":
-    engine = create_engine("mysql+mysqldb://{}:{}@localhost:3306/{}"
-                           .format(sys.argv[1], sys.argv[2], sys.argv[3]))
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'
+                           .format(argv[1], argv[2], argv[3]),
+                           pool_pre_ping=True)
     Session = sessionmaker(bind=engine)
     session = Session()
-
-    res = session.query(State.id).filter(State.name == sys.argv[4])
-
-    if (res.first() is None):
+    states = session.query(State)
+    my_query = states.filter(State.name == "{}".format(argv[4]))
+    for state in my_query:
+        res = state.id
+    try:
+        print(res)
+    except:
         print("Not found")
-    else:
-        print(res[0][0])
+    session.close()

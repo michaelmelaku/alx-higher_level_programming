@@ -1,11 +1,7 @@
 #!/usr/bin/python3
-"""
-used requests models
-"""
+import requests
+from sys import argv
 
-if __name__ == '__main__':
-    import requests
-    import sys
-    para = {"email": sys.argv[2]}
-    r = requests.post(sys.argv[1], data=para)
-    print(r.text)
+if __name__ == "__main__":
+    print_data = requests.post(argv[1], data={"email": argv[2]})
+    print(print_data.text)
