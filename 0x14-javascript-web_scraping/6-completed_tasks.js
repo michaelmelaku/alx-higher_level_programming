@@ -1,22 +1,26 @@
 #!/usr/bin/node
-
 const request = require('request');
+const url = process.argv[2];
+let resultList = [];
+let i = 0;
+const countDict = {};
+let key = '';
 
-request
-  .get(process.argv[2], function (error, response, body) {
-    if (error) {
-      console.log(error);
-    } else {
-      const myDict = {};
-      const data = JSON.parse(body);
-      for (let index = 0; index < data.length; index++) {
-        if (data[index].completed === true) {
-          if (!myDict[data[index].userId.toString()]) {
-            myDict[data[index].userId.toString()] = 0;
-          }
-          myDict[data[index].userId.toString()]++;
+request(url, function (error, response, body) {
+  if (error) {
+    console.log(error);
+  } else {
+    resultList = JSON.parse(body);
+    for (i = 0; i < resultList.length; i++) {
+      key = resultList[i].userId;
+      if (resultList[i].completed === true) {
+        if (!countDict[key]) {
+          countDict[key] = 1;
+        } else {
+          countDict[key] += 1;
         }
       }
-      console.log(myDict);
     }
-  });
+    console.log(countDict);
+  }
+});
